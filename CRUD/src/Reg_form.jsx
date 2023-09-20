@@ -14,7 +14,11 @@ export default function Reg_form() {
       pincode: "",
     },
   });
+  console.log("--->", getData);
 
+  function getData(e) {
+    setUser({ ...user, [e?.target?.name]: e?.target?.value });
+  }
   return (
     <>
       <h1>Registration Form</h1>
@@ -27,6 +31,7 @@ export default function Reg_form() {
               name="name"
               placeholder="Enter Your Name"
               type="text"
+              onChange={(e) => getData(e)}
             />
           </FormGroup>
         </Row>
@@ -37,37 +42,39 @@ export default function Reg_form() {
             name="age"
             placeholder="Enter Your Age"
             type="number"
+            onChange={(e) => getData(e)}
           />
         </FormGroup>
         <FormGroup>
-          <Label>Address 1</Label>
+          <Label>Line 1</Label>
           <Input id="Address" name="address" placeholder="1234 Main St" />
         </FormGroup>
         <FormGroup>
-          <Label for="exampleAddress2">Address 2</Label>
+          <Label for="exampleAddress2">Line 2</Label>
           <Input
             id="exampleAddress2"
             name="address2"
             placeholder="Apartment, studio, or floor"
+            onChange={(e) => getData(e)}
           />
         </FormGroup>
         <Row>
           <Col md={6}>
             <FormGroup>
               <Label>City</Label>
-              <Input id="city" name="city" />
+              <Input id="city" name="city" onChange={(e) => getData(e)} />
             </FormGroup>
           </Col>
           <Col md={4}>
             <FormGroup>
               <Label>State</Label>
-              <Input id="state" name="state" />
+              <Input id="state" name="state" onChange={(e) => getData(e)} />
             </FormGroup>
           </Col>
           <Col md={2}>
             <FormGroup>
               <Label>Pincode</Label>
-              <Input id="pincode" name="pincode" />
+              <Input id="pincode" name="pincode" onChange={(e) => getData(e)} />
             </FormGroup>
           </Col>
         </Row>
