@@ -15,6 +15,8 @@ export default function Reg_form() {
             pincode: "",
         },
     })
+
+
     return (
         <>
             <h1>Registration Form</h1>
